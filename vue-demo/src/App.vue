@@ -4,13 +4,13 @@
  * @Author: ZhangHongyu
  * @Date: 2022-08-09 09:30:55
  * @LastEditors: ZhangHongyu
- * @LastEditTime: 2022-08-09 18:54:41
+ * @LastEditTime: 2022-08-09 19:13:38
 -->
 <template>
   <div id="app">
     <School />
-    <hr />
-    <Student />
+    <hr ref="hr" />
+    <Student ref="Student" />
   </div>
 </template>
 
@@ -23,6 +23,12 @@ export default {
   components: {
     School,
     Student,
+  },
+  created() {
+    console.error(this.$refs.hr);
+  },
+  mounted() {
+    console.error(this.$refs);
   },
 };
 </script>
