@@ -4,7 +4,7 @@
  * @Author: ZhangHongyu
  * @Date: 2022-08-15 14:59:15
  * @LastEditors: ZhangHongyu
- * @LastEditTime: 2022-08-18 15:58:30
+ * @LastEditTime: 2022-08-20 10:08:40
 -->
 <template>
   <div>
@@ -49,6 +49,7 @@ export default {
     "$route.params.username": async function (val) {
       if (val) {
         this.username = val;
+        // 调用actions
         // await this.$store.dispatch("userAbout/getUserByName", {
         //   keyWord: val,
         // });
