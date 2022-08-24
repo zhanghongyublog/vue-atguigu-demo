@@ -4,7 +4,7 @@
  * @Author: ZhangHongyu
  * @Date: 2022-08-15 14:59:15
  * @LastEditors: ZhangHongyu
- * @LastEditTime: 2022-08-20 10:08:40
+ * @LastEditTime: 2022-08-22 15:16:39
 -->
 <template>
   <div>
@@ -41,7 +41,7 @@ export default {
     };
   },
   computed: {
-    isShow: "222",
+    ...mapState("userAbout", { he: "searchCount", searchCount: "searchCount" }),
     ...mapState("userAbout", ["user"]),
   },
   watch: {
@@ -50,10 +50,14 @@ export default {
       if (val) {
         this.username = val;
         // 调用actions
-        // await this.$store.dispatch("userAbout/getUserByName", {
+        // await this.$store.dispatch("userAbout/getUserDetail", {
         //   keyWord: val,
         // });
-        await this.getUserDetail2(val);
+        // await this.$store.dispatch({
+        //   type: "userAbout/getUserDetail",
+        //   keyWord: val,
+        // });
+        // await this.getUserDetail2(val);
       }
     },
   },
@@ -62,7 +66,7 @@ export default {
   },
   methods: {
     getUserDetail2() {
-      this.$store.userAbout.state.users = [];
+      // this.$store.userAbout.state.users = [];
     },
     // ...mapActions("userAbout", { getUserDetail2: "getUserDetail" }),
   },

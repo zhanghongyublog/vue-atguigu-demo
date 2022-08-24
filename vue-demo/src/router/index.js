@@ -4,7 +4,7 @@
  * @Author: ZhangHongyu
  * @Date: 2022-08-17 08:58:25
  * @LastEditors: ZhangHongyu
- * @LastEditTime: 2022-08-18 09:16:42
+ * @LastEditTime: 2022-08-22 15:17:54
  */
 // 该文件专门用于创建整个应用的路由器
 import VueRouter from 'vue-router'
@@ -21,10 +21,18 @@ import Page401 from '../pages/error-page/401.vue'
 
 const routes = [
   {
+    path: '',
+    redirect: (to, from) => {
+      console.error(to, from);
+      return '/home'
+    }
+  },
+  {
     path: '/home',
     component: Home,
     children: [
       {
+        name: 'yonghu',
         path: 'users',
         component: Users,
         children: [{
@@ -42,6 +50,7 @@ const routes = [
     path: '/about',
     component: About
   },
+
   {
     path: '/401',
     component: Page401,

@@ -4,7 +4,7 @@
  * @Author: ZhangHongyu
  * @Date: 2022-08-15 14:59:15
  * @LastEditors: ZhangHongyu
- * @LastEditTime: 2022-08-18 08:47:10
+ * @LastEditTime: 2022-08-22 15:29:03
 -->
 <template>
   <div>
@@ -15,9 +15,18 @@
     <div class="content">
       <div class="userList">
         <div class="userItem" v-for="user in users">
-          <router-link :to="'/home/users/user/' + user.login">{{
+          <router-link
+            custom
+            :to="{
+              path: '/home/users/user/' + user.login,
+              params: { id: 111 },
+            }"
+            >{{ user.login }}</router-link
+          >
+
+          <!-- <router-link :to="'/home/users/user/' + user.login">{{
             user.login
-          }}</router-link>
+          }}</router-link> -->
         </div>
       </div>
       <div class="userDetail">
